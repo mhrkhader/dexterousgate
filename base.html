@@ -26,7 +26,6 @@
 
         .nav-container {
             display: flex;
-            justify-content: flex-start;
             gap: 30px;
             padding-left: 20px;
         }
@@ -60,19 +59,18 @@
             padding: 20px;
             background: #1f2937;
             color: white;
+            margin-top: 40px;
         }
     </style>
 </head>
 
 <body>
 
-<!-- NAVBAR (shared across all pages) -->
+<!-- NAVBAR -->
 <div class="top-bar">
     <div class="nav-container">
         <a href="{{ url_for('index') }}">Home</a>
         <a href="{{ url_for('excel') }}">Excel</a>
-        <a href="#">Python</a>
-        <a href="#">SQL</a>
     </div>
 </div>
 
