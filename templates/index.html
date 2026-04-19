@@ -1,1 +1,220 @@
+{% extends "base.html" %}
 
+{% block content %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* HERO */
+.hero {
+    background: linear-gradient(to right, rgba(31,41,55,0.92), rgba(75,85,99,0.92)),
+    url('https://images.unsplash.com/photo-1551288049-bebda4e38f71');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 90px 20px;
+}
+
+.hero h1 {
+    font-size: 44px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* NAV */
+nav {
+    background: white;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+nav a:hover {
+    color: #2563eb;
+}
+
+/* SECTIONS */
+section {
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* ICON TITLE */
+.card h3 i {
+    margin-right: 8px;
+    color: #2563eb;
+}
+
+/* LINKS */
+a {
+    color: #2563eb;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* BUTTONS */
+.contact-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.contact-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.contact-btn:hover {
+    background: #1d4ed8;
+}
+
+.quote-btn {
+    background: #10b981;
+    color: white;
+}
+
+.quote-btn:hover {
+    background: #059669;
+}
+
+</style>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>Data Analysis Training</h1>
+    <p>Build real-world skills in data, analytics, and decision making</p>
+</div>
+
+<!-- NAV -->
+<nav>
+    <a href="#tools">Tools</a>
+    <a href="#career">Career</a>
+</nav>
+
+<!-- TOOLS -->
+<section id="tools">
+
+    <h2>🛠 Tools You Will Learn</h2>
+
+    <div class="card">
+        <h3><i class="fa-brands fa-python"></i> Python</h3>
+        <p>Analyze and manipulate data using Pandas, NumPy, and Matplotlib.</p>
+    </div>
+
+    <div class="card">
+        <h3><i class="fa-solid fa-database"></i> SQL</h3>
+        <p>Extract and manage data from databases efficiently.</p>
+    </div>
+
+    <div class="card">
+        <h3><i class="fa-solid fa-table"></i> Excel</h3>
+        <p>Extract and manage data from spreadsheets efficiently.</p>
+
+        <a href="{{ url_for('excel') }}">Open Excel Course</a>
+    </div>
+
+    <div class="card">
+        <h3><i class="fa-solid fa-chart-line"></i> Power BI</h3>
+        <p>Create interactive dashboards and business intelligence reports.</p>
+    </div>
+
+    <div class="card">
+        <h3><i class="fa-solid fa-chart-pie"></i> Tableau</h3>
+        <p>Build advanced data visualizations and storytelling dashboards.</p>
+    </div>
+
+    <div class="card">
+        <h3><i class="fa-solid fa-diagram-project"></i> MS Project</h3>
+        <p>Plan, schedule, and manage professional projects efficiently.</p>
+
+        <div class="contact-row">
+
+            <a href="mailto:mhrkhader@gmail.com?subject=MS Project Course Support"
+               class="btn contact-btn">
+                <i class="fa-solid fa-envelope"></i>
+                Contact Instructor
+            </a>
+
+            <a href="mailto:mhrkhader@gmail.com?subject=Quote for Inhouse Training - MS Project"
+               class="btn quote-btn">
+                <i class="fa-solid fa-building"></i>
+                Inhouse Quote
+            </a>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- CAREER -->
+<section id="career">
+
+    <h2>🚀 Career Growth</h2>
+
+    <div class="card">
+        <h3>Build Portfolio</h3>
+        <p>Create real-world projects to showcase your data skills.</p>
+    </div>
+
+    <div class="card">
+        <h3>Job Opportunities</h3>
+        <p>Become a Data Analyst, Business Analyst, or Data Scientist.</p>
+    </div>
+
+</section>
+
+{% endblock %}
