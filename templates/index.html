@@ -14,7 +14,7 @@
     background-position: center;
     color: white;
     text-align: center;
-    padding: 90px 20px;
+    padding: 100px 20px;
 }
 
 .hero h1 {
@@ -27,48 +27,28 @@
     opacity: 0.9;
 }
 
-/* NAV */
-nav {
-    background: white;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-    color: #1f2937;
-}
-
-nav a:hover {
-    color: #2563eb;
-}
-
-/* SECTIONS */
+/* SECTION */
 section {
-    padding: 40px 20px;
+    padding: 50px 20px;
     max-width: 1100px;
     margin: auto;
 }
 
+/* TITLE */
 h2 {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
+    font-size: 28px;
 }
 
 /* CARD */
 .card {
     background: white;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 12px;
+    padding: 22px;
+    margin: 18px 0;
+    border-radius: 14px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .card:hover {
@@ -76,59 +56,17 @@ h2 {
     box-shadow: 0 10px 20px rgba(0,0,0,0.08);
 }
 
-/* ICON TITLE */
+/* ICON */
 .card h3 i {
-    margin-right: 8px;
+    margin-right: 10px;
     color: #2563eb;
 }
 
-/* LINKS */
-a {
-    color: #2563eb;
-    font-weight: bold;
+/* LINK CARD */
+.card-link {
+    display: block;
     text-decoration: none;
-}
-
-a:hover {
-    text-decoration: none;
-}
-
-/* BUTTONS */
-.contact-row {
-    display: flex;
-    gap: 12px;
-    margin-top: 15px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 14px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: 0.3s ease;
-}
-
-.contact-btn {
-    background: #2563eb;
-    color: white;
-}
-
-.contact-btn:hover {
-    background: #1d4ed8;
-}
-
-.quote-btn {
-    background: #10b981;
-    color: white;
-}
-
-.quote-btn:hover {
-    background: #059669;
+    color: inherit;
 }
 
 </style>
@@ -139,80 +77,45 @@ a:hover {
     <p>Build real-world skills in data, analytics, and decision making</p>
 </div>
 
-<!-- NAV -->
-<nav>
-    <a href="#tools">Tools</a>
-    <a href="#career">Career</a>
-</nav>
-
-<!-- TOOLS -->
-<section id="tools">
+<!-- TOOLS ONLY -->
+<section>
 
     <h2>🛠 Tools You Will Learn</h2>
 
+    <!-- PYTHON -->
     <div class="card">
         <h3><i class="fa-brands fa-python"></i> Python</h3>
-        <p>Analyze and manipulate data using Pandas, NumPy, and Matplotlib.</p>
+        <p>Analyze and manipulate data using Pandas, NumPy, and visualization libraries.</p>
     </div>
 
-    <div class="card">
-        <h3><i class="fa-solid fa-database"></i> SQL</h3>
-        <p>Extract and manage data from databases efficiently.</p>
-    </div>
+    <!-- SQL -->
+    <a href="{{ url_for('sql') }}" class="card-link">
+        <div class="card">
+            <h3><i class="fa-solid fa-database"></i> SQL</h3>
+            <p>Extract, transform and manage data from databases efficiently.</p>
+        </div>
+    </a>
 
-    <div class="card">
-        <h3><i class="fa-solid fa-table"></i> Excel</h3>
-        <p>Extract and manage data from spreadsheets efficiently.</p>
+    <!-- EXCEL -->
+    <a href="{{ url_for('excel') }}" class="card-link">
+        <div class="card">
+            <h3><i class="fa-solid fa-table"></i> Excel</h3>
+            <p>Perform data analysis, formulas, dashboards and reporting.</p>
+        </div>
+    </a>
 
-        <a href="{{ url_for('excel') }}">Open Excel Course</a>
-    </div>
+    <!-- POWER BI -->
+    <a href="{{ url_for('powerbi') }}" class="card-link">
+        <div class="card">
+            <h3><i class="fa-solid fa-chart-column"></i> Power BI</h3>
+            <p>Create interactive dashboards and business intelligence reports.</p>
+        </div>
+    </a>
 
-    <div class="card">
-        <h3><i class="fa-solid fa-chart-line"></i> Power BI</h3>
-        <p>Create interactive dashboards and business intelligence reports.</p>
-    </div>
-
+    <!-- TABLEAU -->
     <div class="card">
         <h3><i class="fa-solid fa-chart-pie"></i> Tableau</h3>
-        <p>Build advanced data visualizations and storytelling dashboards.</p>
-    </div>
-
-    <div class="card">
-        <h3><i class="fa-solid fa-diagram-project"></i> MS Project</h3>
-        <p>Plan, schedule, and manage professional projects efficiently.</p>
-
-        <div class="contact-row">
-
-            <a href="mailto:mhrkhader@gmail.com?subject=MS Project Course Support"
-               class="btn contact-btn">
-                <i class="fa-solid fa-envelope"></i>
-                Contact Instructor
-            </a>
-
-            <a href="mailto:mhrkhader@gmail.com?subject=Quote for Inhouse Training - MS Project"
-               class="btn quote-btn">
-                <i class="fa-solid fa-building"></i>
-                Inhouse Quote
-            </a>
-
-        </div>
-    </div>
-
-</section>
-
-<!-- CAREER -->
-<section id="career">
-
-    <h2>🚀 Career Growth</h2>
-
-    <div class="card">
-        <h3>Build Portfolio</h3>
-        <p>Create real-world projects to showcase your data skills.</p>
-    </div>
-
-    <div class="card">
-        <h3>Job Opportunities</h3>
-        <p>Become a Data Analyst, Business Analyst, or Data Scientist.</p>
+        <p>Build advanced visual storytelling dashboards.</p>
     </div>
 
 </section>

@@ -5,6 +5,7 @@
     <title>{{ title if title else "Data Analysis Training" }}</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
         body {
@@ -19,30 +20,33 @@
             position: sticky;
             top: 0;
             background: white;
-            padding: 15px 0;
+            padding: 14px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             z-index: 1000;
         }
 
         .nav-container {
             display: flex;
-            gap: 30px;
-            padding-left: 20px;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
         }
 
         .nav-container a {
             text-decoration: none;
             font-weight: bold;
             color: #1f2937;
+            transition: 0.3s;
         }
 
         .nav-container a:hover {
             color: #2563eb;
         }
 
+        /* CONTENT */
         section {
             padding: 40px 20px;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: auto;
         }
 
@@ -50,8 +54,8 @@
             background: white;
             padding: 20px;
             margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         footer {
@@ -69,16 +73,18 @@
 <!-- NAVBAR -->
 <div class="top-bar">
     <div class="nav-container">
-        <a href="{{ url_for('index') }}">Home</a>
-        <a href="{{ url_for('excel') }}">Excel</a>
+        <a href="{{ url_for('index') }}"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="{{ url_for('excel') }}"><i class="fa-solid fa-table"></i> Excel</a>
+        <a href="{{ url_for('sql') }}"><i class="fa-solid fa-database"></i> SQL</a>
+        <a href="{{ url_for('powerbi') }}"><i class="fa-solid fa-chart-column"></i> Power BI</a>
+        <a href="{{ url_for('contact') }}"><i class="fa-solid fa-envelope"></i> Contact Us</a>
     </div>
 </div>
 
-<!-- PAGE CONTENT -->
 {% block content %}{% endblock %}
 
 <footer>
-    <p>© 2026 Data Analysis Training</p>
+    <p>© 2026 Data Analysis Training | Excel • SQL • Power BI</p>
 </footer>
 
 </body>

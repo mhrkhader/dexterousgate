@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+.contact-container {
+    max-width: 750px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+.contact-title {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 25px;
+    color: #2563eb;
+}
+
+/* CARD */
+.contact-card {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+/* LABEL */
+label {
+    font-weight: 600;
+}
+
+/* INPUTS */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 18px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+/* BUTTON */
+button {
+    background: #2563eb;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+
+    font-family: "Arial Nova Condensed", Arial, sans-serif;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* SUCCESS MESSAGE */
+.success-box {
+    text-align: center;
+    background: #ecfdf5;
+    border: 2px solid #10b981;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    animation: popIn 0.5s ease;
+}
+
+.checkmark {
+    font-size: 45px;
+    color: #10b981;
+}
+
+.success-box h2 {
+    color: #065f46;
+}
+
+.success-box p {
+    color: #047857;
+}
+
+/* ANIMATION */
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+</style>
+
+<div class="contact-container">
+
+    <h2 class="contact-title">
+        <i class="fa-solid fa-envelope"></i> Contact Us
+    </h2>
+
+    <div class="contact-card">
+
+        <!-- SUCCESS MESSAGE -->
+        {% if success %}
+        <div class="success-box">
+            <div class="checkmark">✔</div>
+            <h2>Message Sent Successfully!</h2>
+            <p>We will contact you shortly.</p>
+        </div>
+        {% endif %}
+
+        <!-- CONTACT FORM -->
+        <form method="POST" action="/contact">
+
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Your Name" required>
+
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Your Email" required>
+
+            <label>Message</label>
+            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+
+            <button type="submit">
+                Send Message
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
