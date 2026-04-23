@@ -1,31 +1,32 @@
 from flask import Flask, render_template, request
 import smtplib
+import os
 from email.mime.text import MIMEText
 from datetime import datetime
 
 app = Flask(__name__)
 
-# ---------------- HOME ----------------
+# HOME
 @app.route("/")
 def index():
     return render_template("index.html")
 
-# ---------------- EXCEL ----------------
+# EXCEL
 @app.route("/excel")
 def excel():
     return render_template("excel.html")
 
-# ---------------- SQL ----------------
+# SQL
 @app.route("/sql")
 def sql():
     return render_template("sql.html")
 
-# ---------------- POWER BI ----------------
+# POWER BI
 @app.route("/powerbi")
 def powerbi():
     return render_template("powerbi.html")
 
-# ---------------- CONTACT ----------------
+# CONTACT
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
 
@@ -33,16 +34,13 @@ def contact():
 
     if request.method == "POST":
 
-        # FORM DATA
         name = request.form.get("name")
         email = request.form.get("email")
         message = request.form.get("message")
 
-        # DATE & TIME
         now = datetime.now()
         formatted_time = now.strftime("%Y-%m-%d %H:%M:%S")
 
-        # EMAIL BODY
         body = f"""
 New Contact Message Received:
 
@@ -63,7 +61,6 @@ Message:
             server = smtplib.SMTP("smtp.gmail.com", 587)
             server.starttls()
 
-            # ⚠️ MUST BE GMAIL APP PASSWORD
             server.login(
                 "maher.zoom.training@gmail.com",
                 "yitf zszp ueyy hupb"
@@ -73,7 +70,6 @@ Message:
             server.quit()
 
             success = True
-            print("EMAIL SENT SUCCESSFULLY")
 
         except Exception as e:
             print("EMAIL ERROR:", e)
@@ -81,6 +77,7 @@ Message:
     return render_template("contact.html", success=success)
 
 
-# ---------------- RUN APP ----------------
+# RUN (FIXED FOR RENDER)
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
